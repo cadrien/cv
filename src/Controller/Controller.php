@@ -43,7 +43,7 @@
      * @param null|string $name
      * @return \Doctrine\Common\Persistence\ObjectManager
      */
-    protected function getManager($name)
+    protected function getManager($name=null)
     {
       return $this->getDoctrine()->getManager($name);
     }
