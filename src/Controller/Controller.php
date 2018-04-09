@@ -38,12 +38,16 @@
 
 
     #region public methods
+    #endregion
+
+
+    #region protected methods
 
     /**
      * @param null|string $name
      * @return \Doctrine\Common\Persistence\ObjectManager
      */
-    protected function getManager($name=null)
+    protected function getManager($name = null)
     {
       return $this->getDoctrine()->getManager($name);
     }
@@ -56,10 +60,6 @@
       return $this->get('router');
     }
 
-    #endregion
-
-
-    #region protected methods
     #endregion
 
 
