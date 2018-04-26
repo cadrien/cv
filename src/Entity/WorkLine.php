@@ -9,6 +9,7 @@
   namespace App\Entity;
 
   use App\Extension\Doctrine\ArrayCollection;
+  use Doctrine\ORM\Mapping as ORM;
   use Doctrine\ORM\PersistentCollection;
 
 
@@ -17,7 +18,7 @@
    * @package AppBundle\Entity
    *
    * @ORM\Table(name="work_line")
-   * @ORM\Entity(repositoryClass="AppBundle\Repository\WorkLineRepository")
+   * @ORM\Entity
    */
   class WorkLine extends Entity
   {
