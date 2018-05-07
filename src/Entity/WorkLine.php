@@ -48,7 +48,7 @@
     /**
      * @var Work
      *
-     * @ORM\ManyToOne(targetEntity="Work")
+     * @ORM\ManyToOne(targetEntity="Work", inversedBy="workLines")
      * @ORM\JoinColumn(name="wor_id", referencedColumnName="wor_id", nullable=false)
      */
     private $work;
@@ -63,7 +63,7 @@
     /**
      * @var WorkLine|null
      *
-     * @ORM\ManyToOne(targetEntity="WorkLine")
+     * @ORM\ManyToOne(targetEntity="WorkLine", inversedBy="workLines")
      * @ORM\JoinColumn(name="wol_id_parent", referencedColumnName="wol_id", nullable=true)
      */
     private $parent;

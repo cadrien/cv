@@ -67,7 +67,7 @@
     /**
      * @var Company
      *
-     * @ORM\ManyToOne(targetEntity="Company")
+     * @ORM\ManyToOne(targetEntity="Company", inversedBy="works")
      * @ORM\JoinColumn(name="com_id", referencedColumnName="com_id", nullable=false)
      */
     private $company;
