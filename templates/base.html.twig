@@ -1,12 +1,104 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta charset='UTF-8'/>
+        <link rel='icon' type='image/x-icon' href='{{ asset('favicon.ico') }}'/>
+        <link rel='stylesheet' href='{{ asset('bundles/twbs/bootstrap/dist/css/bootstrap.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('bundles/app/vendor/vertical-timeline/css/reset.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('bundles/app/vendor/vertical-timeline/css/style.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('bundles/app/css/base.css') }}' media='screen'/>
+        {% block css %}{% endblock %}
+        <script src='{{ asset('bundles/jquery/jquery.js') }}'></script>
+        <script type='text/javascript' src='{{ asset('/bundles/app/js/base.js') }}'></script>
+        <script defer src='{{ asset('test.js') }}'></script>
+        <script defer
+                src='{{ asset('bundles/app/vendor/fontawesome-pro-5.0.2/svg-with-js/js/fontawesome.min.js') }}'></script>
+        <script defer
+                src='{{ asset('bundles/app/vendor/fontawesome-pro-5.0.2/svg-with-js/js/fa-solid.min.js') }}'></script>
+        <script defer
+                src='{{ asset('bundles/app/vendor/fontawesome-pro-5.0.2/svg-with-js/js/fa-regular.min.js') }}'></script>
+        <script defer
+                src='{{ asset('bundles/app/vendor/fontawesome-pro-5.0.2/svg-with-js/js/fa-light.min.js') }}'></script>
+        <script defer src='{{ asset('bundles/app/vendor/vertical-timeline/js/modernizr.js') }}'></script>
+        {% block js %}{% endblock %}
+        <title>{% block title %}Bienvenue !{% endblock %}</title>
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    {% block nav %}
+        <nav class='navbar navbar-black'>
+            <div class='container-fluid'>
+                <div class='navbar-header hidden-xs'>
+                    <a id='homepage' class='btn btn-sm' href='{{ path("homepage") }}'>
+                        <span class='text-nowrap'>
+                            <i class='fa fa-3x fa-home'></i>
+                        </span>
+                    </a>
+                </div>
+                <ul class='nav navbar-nav'>
+                    <li{{ app.request.pathInfo in [path('homepage')] ? " class='active'" }}><a
+                                href='{{ path('homepage') }}'>Expériences</a></li>
+                    <li{{ app.request.pathInfo == path('formation') ? " class='active'" }}><a
+                                href='{{ path('formation') }}'>Formations</a></li>
+                    <li{{ app.request.pathInfo == path('competence') ? " class='active'" }}><a
+                                href='{{ path('competence') }}'>Compétences</a></li>
+                    <li{{ app.request.pathInfo == path('personal') ? " class='active'" }}><a
+                                href='{{ path('personal') }}'>Personnel</a></li>
+                </ul>
+                <div class='pull-right hidden-xs'>
+                    <span class='navbar-brand'>{% block navbar_brand %}CV{% endblock %}</span>
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
+    <div class='container-fluid'>
+        <div class='row row-reverse-xs'>
+            <div class='col-sm-3'>
+                <div class='panel panel-default'>
+                    <div class='panel-heading'>Mes infos</div>
+                    <div class='panel-body pa0'>
+                        <div class='list-group ma0'>
+                            <div class='list-group-item text-overflow'><i class='fa fa-phone'></i> +33 (0)6.51.45.41.33
+                            </div>
+                            <a href='mailto:adrien.chaumarat@gmail.com' target=_blank
+                               class='list-group-item text-overflow'><i class='fa fa-envelope'></i>
+                                adrien.chaumarat@gmail.com</a>
+                            <a href='' class='list-group-item text-overflow'><i class='fa fa-map-marker'></i> 43 Av
+                                Paris, REIMS</a>
+                            <div class='list-group-item text-overflow'><i class='fa fa-info-circle'></i> Né le 10
+                                janvier 1989
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='panel panel-default'>
+                    <div class='panel-heading'>Réseaux</div>
+                    <div class='panel-body pa0'>
+                        <div class='list-group ma0'>
+                            <a href='https://fr.linkedin.com/in/adrienchaumarat' target=_blank
+                               class='list-group-item text-overflow'><i class='fa fa-linkedin'></i> LinkedIn</a>
+                            <a href='https://fr.viadeo.com/fr/profile/adrien.chaumarat' target=_blank
+                               class='list-group-item text-overflow'><i class='fa fa-viadeo'></i> Viadeo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class='panel panel-default'>
+                    <div class='panel-heading'>Contact</div>
+                    <div class='panel-body pa0'>
+                        <div class='list-group ma0'>
+                            <button data-toggle='modal' class='list-group-item text-overflow'><i
+                                        class='fa fa-arrow-circle-right'></i> Me contacter
+                            </button>
+                            <a href='' class='list-group-item text-overflow'><i class='fa fa-arrow-circle-right'></i>
+                                Télécharger le CV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-9'>
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    {% block js_end %}{% endblock %}
     </body>
 </html>
