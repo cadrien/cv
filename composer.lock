@@ -4,9 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-  "content-hash": "adf2eec8a9bd2b9dc53927ac2494d60b",
+  "content-hash": "5b3414128a262edd63a2e6d5ec9cf045",
     "packages": [
         {
+          "name": "components/jquery",
+          "version": "3.3.1",
+          "source": {
+            "type": "git",
+            "url": "https://github.com/components/jquery.git",
+            "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649"
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/jquery/zipball/459648cda77875519c5da3ae1dd0ed5d170aa649",
+            "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649",
+            "shasum": ""
+          },
+          "type": "component",
+          "extra": {
+            "component": {
+              "scripts": [
+                "jquery.js"
+              ],
+              "files": [
+                "jquery.min.js",
+                "jquery.min.map",
+                "jquery.slim.js",
+                "jquery.slim.min.js",
+                "jquery.slim.min.map"
+              ]
+            }
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+            "MIT"
+          ],
+          "authors": [
+            {
+              "name": "JS Foundation and other contributors"
+            }
+          ],
+          "description": "jQuery JavaScript Library",
+          "homepage": "http://jquery.com",
+          "time": "2018-03-04T13:23:48+00:00"
+        },
+      {
             "name": "doctrine/annotations",
             "version": "v1.6.0",
             "source": {
@@ -774,16 +816,16 @@
         },
         {
             "name": "doctrine/migrations",
-          "version": "v1.7.0",
+          "version": "v1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-              "reference": "bb942dfc9364d97662325678ef6ba0e8fc6ff4df"
+              "reference": "d3e8b903233d5fb7f00193c95eec501f27c0b908"
             },
             "dist": {
                 "type": "zip",
-              "url": "https://api.github.com/repos/doctrine/migrations/zipball/bb942dfc9364d97662325678ef6ba0e8fc6ff4df",
-              "reference": "bb942dfc9364d97662325678ef6ba0e8fc6ff4df",
+              "url": "https://api.github.com/repos/doctrine/migrations/zipball/d3e8b903233d5fb7f00193c95eec501f27c0b908",
+              "reference": "d3e8b903233d5fb7f00193c95eec501f27c0b908",
                 "shasum": ""
             },
             "require": {
@@ -843,7 +885,7 @@
                 "database",
                 "migrations"
             ],
-          "time": "2018-05-05T22:46:31+00:00"
+          "time": "2018-05-07T12:37:11+00:00"
         },
         {
             "name": "doctrine/orm",
