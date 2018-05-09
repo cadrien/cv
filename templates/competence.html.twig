@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar_brand -%}
+    Compétence
+{%- endblock %}
+
+{% block content %}
+    {% for category in categories if category.competences | length %}
+        <div class='panel panel-info'>
+            <div class='panel-heading'>
+                {{ category.name }}
+            </div>
+            <div class='panel-body'>
+                <div class='row'>
+                    {% for competence in category.competences %}
+                        <div class='col-sm-4 form-group'>{{ competence.name }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
