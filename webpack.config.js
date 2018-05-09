@@ -5,20 +5,13 @@ Encore
     .setOutputPath('public/build/')
     // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
-    .cleanupOutputBeforeBuild()
+    .addEntry('bootstrap.css', './vendor/twbs/bootstrap/dist/css/bootstrap.css')
+    .addEntry('popper.min.js', './vendor/twbs/bootstrap/assets/js/vendor/popper.min.js')
+    //.addEntry('bootstrap.js', './vendor/twbs/bootstrap/dist/js/bootstrap.js')
+    .autoProvidejQuery()
     .enableSourceMaps(!Encore.isProduction())
-    // uncomment to create hashed filenames (e.g. app.abc123.css)
-    // .enableVersioning(Encore.isProduction())
-
-    // uncomment to define the assets of the project
-    // .addEntry('js/app', './assets/js/app.js')
-    // .addStyleEntry('css/app', './assets/css/app.scss')
-
-    // uncomment if you use Sass/SCSS files
-    // .enableSassLoader()
-
-    // uncomment for legacy applications that require $/jQuery as a global variable
-    // .autoProvidejQuery()
+    .cleanupOutputBeforeBuild()
+    .enableBuildNotifications()
 ;
 
 module.exports = Encore.getWebpackConfig();
