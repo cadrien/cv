@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% macro showWorklines(worklines) %}
+    {% if worklines is iterable and worklines | length %}
+        {% import _self as macros %}
+        <ul class='list-group'>
+            {% for workline in worklines %}
+                {% set children = workline.worklines %}
+                <li class='list-group-item work-line'>
+                    {{ workline.label }}
+                    {% if children is iterable and children | length %}
+                        {{ macros.showWorklines(children) }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% block navbar_brand -%}
+    Expérience
+{%- endblock %}
+
+{% block content %}
+    {% import _self as macros %}
+    {% if companies is defined %}
+        <section id='cd-timeline' class='cd-container ma0'>
+            {% for company in companies %}
+                <div class='cd-timeline-block'>
+                    <div class='cd-timeline-img bg-info'>
+                        {% if company.logo is not empty %}
+                            <img src='{{ company.logo }}'/>
+                        {% else %}
+                            {{ company.name }}
+                        {% endif %}
+                    </div>
+                    <div class='cd-timeline-content company'>
+                        <h2>{{ company.name }}</h2>
+                        {% for work in company.worksSorted %}
+                            <div class='row work'>
+                                <div class='col-sm-8 work-name'>
+                                    {{ work.jobName }}
+                                </div>
+                                <div class='col-sm-4 text-right'>
+                                    <span class='badge work-duration'>
+                                        {% if work.duration.y %}
+                                            {{ work.duration.y }}
+                                            {{ work.duration.y > 1 ? 'ans' : 'an' }}
+                                        {% endif %}
+                                        {% set months = work.duration.m + (work.duration.d > 15 ? 1 : 0) %}
+                                        {{ months ? months : '< 1' }} mois
+                                    </span>
+                                </div>
+                            </div>
+                            {{ macros.showWorklines(work.workLinesFirstLevel) }}
+                            {% if loop.last %}
+                                <span class='cd-date'>{{ work.from | date('M y') }}</span>
+                            {% endif %}
+                        {% endfor %}
+                        <a href='{{ company.url }}' target=_blank class='cd-read-more'>
+                            <i class='fa fa-link'></i>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endblock %}
