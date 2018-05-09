@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar_brand -%}
+    Personnel
+{%- endblock %}
+
+{% block content %}
+    {% for category in categories if category.personals | length %}
+        <div class='panel panel-info'>
+            <div class='panel-heading'>
+                {{ category.name }}
+            </div>
+            <div class='panel-body pa0'>
+                <ul class='list-group'>
+                    {% for personal in category.personals %}
+                        <li class='list-group-item'>{{ personal.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
