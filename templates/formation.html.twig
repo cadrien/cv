@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar_brand -%}
+    Formation
+{%- endblock %}
+
+{% block content %}
+    {% if formations is defined %}
+        <section id='cd-timeline' class='cd-container ma0'>
+            {% for formation in formations %}
+                <div class='cd-timeline-block'>
+                    <div class='cd-timeline-img bg-info'>
+                        {% if formation.school.logo is not empty %}
+                            <img src='{{ formation.school.logo }}'/>
+                        {% else %}
+                            {{ formation.school.name }}
+                        {% endif %}
+                    </div>
+                    <div class='cd-timeline-content'>
+                        <h2>{{ formation.degree }}</h2>
+                        <a href='{{ formation.id }}' class='cd-read-more'>
+                            <i class='fa fa-link'></i>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+{% endblock %}
