@@ -1,0 +1,165 @@
+:root {
+    --red: #e03838;
+    --bgray: #e1e4e6;
+    --blue: #245269;
+    --white: white;
+    --black: #424242;
+    --rgray: #dbbfbf;
+}
+
+body {
+    background-color: var(--white);
+}
+
+[data-href] {
+    cursor: pointer;
+}
+
+.pa0 {
+    padding: 0 !important;
+}
+
+.ma0 {
+    margin: 0 auto !important;
+}
+
+.cd-container {
+    width: 100%;
+}
+
+/*.list-group-item { border:none; }
+a.list-group-item, button.list-group-item { color:inherit; }
+*/
+.cd-timeline-content {
+    background-color: var(--bgray)
+}
+
+*
+
+/
+.cd-timeline-img img {
+    min-width: 60px;
+    min-height: 60px;
+    position: initial;
+    margin: auto;
+    border-radius: 50%;
+}
+
+@media (max-width: 1169px) {
+    .cd-timeline-img img {
+        min-width: 40px;
+        min-height: 40px;
+        position: initial;
+        margin: auto;
+        border-radius: 50%;
+    }
+
+    .row-reverse-xs {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+.work {
+    padding-bottom: 5px;
+    border-bottom: solid 1px rgba(127, 140, 151, .5);
+    margin-top: 25px;
+}
+
+.work-name {
+    line-height: 21px;
+}
+
+.work-duration {
+    opacity: 0.7;
+}
+
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.navbar-red {
+    background-color: var(--red);
+    border-color: var(--red);
+    color: var(--rgray);
+}
+
+.navbar-rgray {
+    background-color: var(--rgray);
+    border-color: var(--rgray);
+    color: var(--red);
+}
+
+.navbar-blue {
+    background-color: var(--blue);
+    border-color: var(--blue);
+    color: var(--bgray);
+}
+
+.navbar-bgray {
+    background-color: var(--bgray);
+    border-color: var(--bgray);
+    color: var(--blue);
+}
+
+.navbar-white {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--black);
+}
+
+.navbar-black {
+    background-color: var(--black);
+    border-color: var(--black);
+    color: var(--white);
+}
+
+.bg-red {
+    background-color: var(--red);
+}
+
+.bg-rgray {
+    background-color: var(--rgray);
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.bg-bgray {
+    background-color: var(--bgray);
+}
+
+.bg-white {
+    background-color: var(--white);
+}
+
+.bg-black {
+    background-color: var(--black);
+}
+
+.text-red {
+    background-color: var(--red);
+}
+
+.text-rgray {
+    background-color: var(--rgray);
+}
+
+.text-blue {
+    background-color: var(--blue);
+}
+
+.text-bgray {
+    background-color: var(--bgray);
+}
+
+.text-white {
+    background-color: var(--white);
+}
+
+.text-black {
+    background-color: var(--black);
+}
