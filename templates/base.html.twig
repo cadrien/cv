@@ -2,24 +2,14 @@
 <html>
     <head>
         <meta charset='UTF-8'/>
-        <link rel='icon' type='image/x-icon' href='{{ asset('favicon.ico') }}'/>
-        <link rel='stylesheet' href='{{ asset('bundles/twbs/bootstrap/dist/css/bootstrap.css') }}' media='screen'/>
-        <link rel='stylesheet' href='{{ asset('bundles/app/vendor/vertical-timeline/css/reset.css') }}' media='screen'/>
-        <link rel='stylesheet' href='{{ asset('bundles/app/vendor/vertical-timeline/css/style.css') }}' media='screen'/>
-        <link rel='stylesheet' href='{{ asset('bundles/app/css/base.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('/build/bootstrap.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('/build/fa.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('/build/vertical-timeline-reset.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('/build/vertical-timeline-style.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('/build/base.css') }}' media='screen'/>
         {% block css %}{% endblock %}
-        <script src='{{ asset('bundles/jquery/jquery.js') }}'></script>
-        <script type='text/javascript' src='{{ asset('/bundles/app/js/base.js') }}'></script>
-        <script defer src='{{ asset('test.js') }}'></script>
-        <script defer
-                src='{{ asset('bundles/app/vendor/fontawesome-pro-5.0.2/svg-with-js/js/fontawesome.min.js') }}'></script>
-        <script defer
-                src='{{ asset('bundles/app/vendor/fontawesome-pro-5.0.2/svg-with-js/js/fa-solid.min.js') }}'></script>
-        <script defer
-                src='{{ asset('bundles/app/vendor/fontawesome-pro-5.0.2/svg-with-js/js/fa-regular.min.js') }}'></script>
-        <script defer
-                src='{{ asset('bundles/app/vendor/fontawesome-pro-5.0.2/svg-with-js/js/fa-light.min.js') }}'></script>
-        <script defer src='{{ asset('bundles/app/vendor/vertical-timeline/js/modernizr.js') }}'></script>
+        <script src='{{ asset('/build/jquery.min.js') }}'></script>
+        <script src='{{ asset('/build/vertical-timeline-js.js') }}'></script>
         {% block js %}{% endblock %}
         <title>{% block title %}Bienvenue !{% endblock %}</title>
     </head>
