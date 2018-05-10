@@ -25,28 +25,21 @@
     </head>
     <body>
     {% block nav %}
-        <nav class='navbar navbar-black'>
-            <div class='container-fluid'>
-                <div class='navbar-header hidden-xs'>
-                    <a id='homepage' class='btn btn-sm' href='{{ path("homepage") }}'>
-                        <span class='text-nowrap'>
-                            <i class='fa fa-3x fa-home'></i>
-                        </span>
-                    </a>
+        <nav class='navbar navbar-expand navbar-light bg-light'>
+            <div class='collapse navbar-collapse'>
+                <div class='navbar-nav'>
+                    <a class='nav-item nav-link{{ app.request.pathInfo in [path('homepage')] ? ' active' }}'
+                       href='{{ path('homepage') }}'>Expériences</a>
+                    <a class='nav-item nav-link{{ app.request.pathInfo == path('formation') ? ' active' }}'
+                       href='{{ path('formation') }}'>Formations</a>
+                    <a class='nav-item nav-link{{ app.request.pathInfo == path('competence') ? ' active' }}'
+                       href='{{ path('competence') }}'>Compétences</a>
+                    <a class='nav-item nav-link{{ app.request.pathInfo == path('personal') ? ' active' }}'
+                       href='{{ path('personal') }}'>Personnel</a>
                 </div>
-                <ul class='nav navbar-nav'>
-                    <li{{ app.request.pathInfo in [path('homepage')] ? " class='active'" }}><a
-                                href='{{ path('homepage') }}'>Expériences</a></li>
-                    <li{{ app.request.pathInfo == path('formation') ? " class='active'" }}><a
-                                href='{{ path('formation') }}'>Formations</a></li>
-                    <li{{ app.request.pathInfo == path('competence') ? " class='active'" }}><a
-                                href='{{ path('competence') }}'>Compétences</a></li>
-                    <li{{ app.request.pathInfo == path('personal') ? " class='active'" }}><a
-                                href='{{ path('personal') }}'>Personnel</a></li>
-                </ul>
-                <div class='pull-right hidden-xs'>
-                    <span class='navbar-brand'>{% block navbar_brand %}CV{% endblock %}</span>
-                </div>
+            </div>
+            <div class='pull-right hidden-xs'>
+                <span class='navbar-brand'>{% block navbar_brand %}CV{% endblock %}</span>
             </div>
         </nav>
     {% endblock %}
