@@ -5,9 +5,10 @@ Encore
     .setOutputPath('public/build/')
     // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
-    .addEntry('bootstrap.css', './vendor/twbs/bootstrap/dist/css/bootstrap.css')
-    .addEntry('popper.min.js', './vendor/twbs/bootstrap/assets/js/vendor/popper.min.js')
-    //.addEntry('bootstrap.js', './vendor/twbs/bootstrap/dist/js/bootstrap.js')
+    .addEntry('fa', './vendor/fortawesome/font-awesome/css/font-awesome.css')
+    .addEntry('bootstrap', './vendor/twbs/bootstrap/dist/css/bootstrap.css')
+    .addEntry('jquery.min', './vendor/components/jquery/jquery.min.js')
+    .addEntry('popper.min', './vendor/twbs/bootstrap/assets/js/vendor/popper.min.js')
     .autoProvidejQuery()
     .enableSourceMaps(!Encore.isProduction())
     .cleanupOutputBeforeBuild()
