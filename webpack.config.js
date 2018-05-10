@@ -5,6 +5,7 @@ Encore
     .setOutputPath('public/build/')
     // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
+    .addEntry('base', './assets/base.css')
     .addEntry('vertical-timeline-reset', './assets/vertical-timeline-master/css/reset.css')
     .addEntry('vertical-timeline-style', './assets/vertical-timeline-master/css/style.css')
     .addEntry('vertical-timeline-js', './assets/vertical-timeline-master/js/main.js')
