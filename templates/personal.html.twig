@@ -6,16 +6,16 @@
 
 {% block content %}
     {% for category in categories if category.personals | length %}
-        <div class='card card-info'>
-            <div class='card-heading'>
-                {{ category.name }}
+        <div class='card mb-4'>
+            <div class='card-header'>
+                {{ category }}
             </div>
-            <div class='card-body pa0'>
-                <ul class='list-group'>
+            <div class='card-body'>
+                <div class='row'>
                     {% for personal in category.personals %}
-                        <li class='list-group-item'>{{ personal.name }}</li>
+                        <div class='col-sm-12 mb-4'>{{ personal }}</div>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
         </div>
     {% endfor %}

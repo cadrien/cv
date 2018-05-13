@@ -6,14 +6,14 @@
 
 {% block content %}
     {% for category in categories if category.competences | length %}
-        <div class='card card-info'>
-            <div class='card-heading'>
-                {{ category.name }}
+        <div class='card mb-4'>
+            <div class='card-header'>
+                {{ category }}
             </div>
             <div class='card-body'>
                 <div class='row'>
                     {% for competence in category.competences %}
-                        <div class='col-sm-4 form-group'>{{ competence.name }}</div>
+                        <div class='col-sm-4 mb-4'>{{ competence }}</div>
                     {% endfor %}
                 </div>
             </div>

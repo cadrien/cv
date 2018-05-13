@@ -15,7 +15,7 @@
     </head>
     <body>
     {% block nav %}
-        <nav class='navbar navbar-expand navbar-light bg-light'>
+        <nav class='navbar navbar-expand navbar-light bg-light mb-4'>
             <div class='collapse navbar-collapse'>
                 <div class='navbar-nav'>
                     <a class='nav-item nav-link{{ app.request.pathInfo in [path('homepage')] ? ' active' }}'
@@ -34,51 +34,58 @@
         </nav>
     {% endblock %}
     <div class='container-fluid'>
-        <div class='row row-reverse-xs'>
-            <div class='col-sm-3'>
-                <div class='card card-default'>
-                    <div class='card-heading'>Mes infos</div>
-                    <div class='card-body pa0'>
-                        <div class='list-group ma0'>
-                            <div class='list-group-item text-overflow'><i class='fa fa-phone'></i> +33 (0)6.51.45.41.33
-                            </div>
-                            <a href='mailto:adrien.chaumarat@gmail.com' target=_blank
-                               class='list-group-item text-overflow'><i class='fa fa-envelope'></i>
-                                adrien.chaumarat@gmail.com</a>
-                            <a href='' class='list-group-item text-overflow'><i class='fa fa-map-marker'></i> 43 Av
-                                Paris, REIMS</a>
-                            <div class='list-group-item text-overflow'><i class='fa fa-info-circle'></i> Né le 10
-                                janvier 1989
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class='card card-default'>
-                    <div class='card-heading'>Réseaux</div>
-                    <div class='card-body pa0'>
-                        <div class='list-group ma0'>
-                            <a href='https://fr.linkedin.com/in/adrienchaumarat' target=_blank
-                               class='list-group-item text-overflow'><i class='fa fa-linkedin'></i> LinkedIn</a>
-                            <a href='https://fr.viadeo.com/fr/profile/adrien.chaumarat' target=_blank
-                               class='list-group-item text-overflow'><i class='fa fa-viadeo'></i> Viadeo</a>
-                        </div>
-                    </div>
-                </div>
-                <div class='card card-default'>
-                    <div class='card-heading'>Contact</div>
-                    <div class='card-body pa0'>
-                        <div class='list-group ma0'>
-                            <button data-toggle='modal' class='list-group-item text-overflow'><i
-                                        class='fa fa-arrow-circle-right'></i> Me contacter
-                            </button>
-                            <a href='' class='list-group-item text-overflow'><i class='fa fa-arrow-circle-right'></i>
-                                Télécharger le CV</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class='row'>
             <div class='col-sm-9'>
                 {% block content %}{% endblock %}
+            </div>
+            <div class='col-sm-3'>
+                <div class='card mb-5'>
+                    <div class='card-header'>Mes infos</div>
+                    <div class='card-body'>
+                        <div class='card-title mb-4'><i class='fa fa-phone'></i> +33 (0)6.51.45.41.33</div>
+                        <div class='card-title mb-4'>
+                            <a href='mailto:adrien.chaumarat@gmail.com' target=_blank>
+                                <i class='fa fa-envelope'></i> adrien.chaumarat@gmail.com
+                            </a>
+                        </div>
+                        <div class='card-title mb-4'>
+                            <a href=''><i class='fa fa-map-marker'></i> 43 Av Paris, REIMS</a>
+                        </div>
+                        <div class='card-title mb-4'>
+                            <i class='fa fa-info-circle'></i> Né le 10 janvier 1989
+                        </div>
+                    </div>
+                </div>
+                <div class='card mb-5'>
+                    <div class='card-header'>Réseaux</div>
+                    <div class='card-body'>
+                        <div class='card-title mb-4'>
+                            <a href='https://fr.linkedin.com/in/adrienchaumarat' target=_blank>
+                                <i class='fa fa-linkedin'></i> LinkedIn
+                            </a>
+                        </div>
+                        <div class='card-title mb-4'>
+                            <a href='https://fr.viadeo.com/fr/profile/adrien.chaumarat' target=_blank>
+                                <i class='fa fa-viadeo'></i> Viadeo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class='card mb-5'>
+                    <div class='card-header'>Contact</div>
+                    <div class='card-body'>
+                        <div class='card-title mb-4'>
+                            <a href='' data-toggle='modal'>
+                                <i class='fa fa-arrow-circle-right'></i> Me contacter
+                            </a>
+                        </div>
+                        <div class='card-title mb-4'>
+                            <a href=''>
+                                <i class='fa fa-arrow-circle-right'></i> Télécharger le CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
