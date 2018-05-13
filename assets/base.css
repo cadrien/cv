@@ -1,3 +1,5 @@
+.cd-timeline { margin:auto; }
+/*
 :root {
     --red: #e03838;
     --bgray:#e1e4e6;
@@ -39,3 +41,4 @@ body { background-color:var(--white); }
 .text-bgray { background-color:var(--bgray); }
 .text-white { background-color:var(--white); }
 .text-black { background-color:var(--black); }
+//*/
