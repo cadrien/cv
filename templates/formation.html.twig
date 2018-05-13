@@ -6,24 +6,23 @@
 
 {% block content %}
     {% if formations is defined %}
-        <section id='cd-timeline' class='cd-container ma0'>
-            {% for formation in formations %}
-                <div class='cd-timeline-block'>
-                    <div class='cd-timeline-img bg-info'>
-                        {% if formation.school.logo is not empty %}
+        <div class='cd-timeline js-cd-timeline'>
+            <div class="cd-timeline__container">
+                {% for formation in formations %}
+                    <div class='cd-timeline__block js-cd-block'>
+                        <div class='cd-timeline__img cd-timeline__img--picture js-cd-img'>
                             <img src='{{ formation.school.logo }}'/>
-                        {% else %}
-                            {{ formation.school.name }}
-                        {% endif %}
+                        </div>
+                        <div class='cd-timeline__content js-cd-content'>
+                            <h2 class='mb-4'>{{ formation.degree }}</h2>
+                            <a href='{{ formation.url }}' target=_blank class='cd-timeline__read-more'>
+                                <i class='fa fa-link'></i>
+                            </a>
+                            <span class='cd-timeline__date'>{{ formation.to | date('M y') }}
+                        </div>
                     </div>
-                    <div class='cd-timeline-content'>
-                        <h2>{{ formation.degree }}</h2>
-                        <a href='{{ formation.id }}' class='cd-read-more'>
-                            <i class='fa fa-link'></i>
-                        </a>
-                    </div>
-                </div>
-            {% endfor %}
-        </section>
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
 {% endblock %}
