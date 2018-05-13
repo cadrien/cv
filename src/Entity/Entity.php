@@ -27,6 +27,18 @@
 
 
     #region magic methods
+
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    public function __toString()
+    {
+      if (!method_exists($this, 'getName'))
+        throw new \Exception('__toString method does not exist for ' . get_class($this) . ' object');
+      return $this->getName();
+    }
+
     #endregion
 
 
