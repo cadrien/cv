@@ -115,231 +115,129 @@ final class Version20180510180537 extends AbstractMigration
           )
         ');
         $this->connection->executeQuery('
-          INSERT INTO work (
-            wor_id,
-            com_id,
-            wor_from,
-            wor_to,
-            wor_job_name
-          )
-          VALUES (
-            1,
-            1,
-            "2005-07-01",
-            "2011-08-31",
-            "Moniteur kayak"
-          ), (
-            2,
-            2,
-            "2014-01-01",
-            "2014-01-31",
-            "Déménageur"
-          ), (
-            3,
-            3,
-            "2014-03-16",
-            "2014-03-19",
-            "Organisateur"
-          ), (
-            4,
-            4,
-            "2011-01-01",
-            "2011-01-31",
-            "Webmaster"
-          ), (
-            5,
-            5,
-            "2013-04-01",
-            "2013-06-30",
-            "Consultant Informatique"
-          ), (
-            6,
-            6,
-            "2014-06-26",
-            "2017-02-13",
-            "Ingénieur d\'étude et de développement"
-          ), (
-            7,
-            7,
-            "2017-02-20",
-            "2017-08-31",
-            "Lead Developer"
-          ), (
-            8,
-            7,
-            "2017-09-01",
-            null,
-            "Chef de projet / Lead Developer"
-          )
-        ');
-        $this->connection->executeQuery('
-          INSERT INTO work_line (
-            wol_id,
-            wor_id,
-            wor_id_parent,
-            wor_label
-          )
-          VALUES (1, 1, null, "Encadrement des participants seul ou à plusieurs"),
-          VALUES (2, 1, null, "Préparation matériel"),
-          VALUES (3, 1, null, "Organisation des journées"),
-          VALUES (4, 1, null, "Mise en place des consignes de sécurité"),
-          VALUES (5, 1, null, "Conception et évolution de jeux"),
-          VALUES (6, 2, null, "Transferts organisés des dossiers sous scellés"),
-          VALUES (7, 2, null, "Montage / démontage étagères"),
-          VALUES (8, 3, null, "Responsable des temps de paroles de chaque délégation"),
-          VALUES (9, 3, null, "Ordonner les orateurs selon une liste prédéfinie"),
-          VALUES (10, 4, null, "Refonte du site web seul"),
-          VALUES (11, 4, null, "Actualisation mise en page et contenu"),
-          VALUES (12, 4, null, "Simplification et amélioration du code"),
-          VALUES (13, 4, null, "Ajout de fonctionnalités"),
-          VALUES (14, 5, null, "Développement portail interne dans une équipe de 3 personnes"),
-          VALUES (15, 5, null, "Utilisation de Guide Procedure, Visual Composer et SAP"),
-          VALUES (16, 5, null, "Changement des logins de connexion"),
-          VALUES (17, 5, null, "Création de boutons visuels"),
-          VALUES (18, 6, null, "Chez Arval MD (ex: Louveo) filiale de BNP Paribas"),
-          VALUES (19, 6 , 18, "Migration de l\'application existante sous Symfony"),
-          VALUES (20, 6 , 18, "Mise en place de la signature électronique via echosign"),
-          VALUES (21, 6 , 18, "Élaboration d\'une interface avec ActiveSync"),
-          VALUES (22, 6 , 18, "Création d\'un webservice à l\'aide de la librairie NuSOAP"),
-          VALUES (23, 6 , 18, "Développement et mis à jour de nombreux modules du portail interne"),
-          VALUES (24, 6 , 18, "Utilisation et évolution du framework de l\'entreprise"),
-          VALUES (25, 6 , 18, "Administration des droits d\'accès aux fonctionnalités"),
-          VALUES (26, 6 , 18, "Gestion et intégration des traductions"),
-          VALUES (27, 7, null, "Refonte multiples de pages"),
-          VALUES (28, 7, null, "Amélioration des performances générales"),
-          VALUES (29, 7, null, "Ajout de fonctionnalité"),
-          VALUES (30, 8, null, "Gestion de divers projets"),
-          VALUES (31, 8, null, "Evolution profonde de l\'application"),
-          VALUES (32, 8, null, "Mis en place de process complexe pour l\'intégration de Symfony")
-        ');
-        $this->connection->executeQuery('
-          INSERT INTO school (
-            sch_id,
-            sch_name,
-            sch_logo
-          )
-          VALUES (
-            1,
-            "Université de Genève",
-            null
-          ), (
-            2,
-            "Université Jean Monnet",
-            null
-          ), (
-            3,
-            "Lycée François Mauriac",
-            null
-          )
-        ');
-        $this->connection->executeQuery('
-          INSERT INTO formation (
-            sch_id,
-            frm_degree,
-            frm_from,
-            frm_to
-          )
-          VALUES (
-            1,
-            "Master sciences informatique mention excellent",
-            "2011-09-01",
-            "2014-01-31"
-          ), (
-            2,
-            "licence informatique",
-            "2008-09-01",
-            "2011-06-30"
-          ), (
-            3,
-            "baccalaureat scientifique specialite mathematiques",
-            null,
-            "2008-06-30"
-          )
-        ');
-        $this->connection->executeQuery('
-          INSERT INTO category (
-            cat_id,
-            cat_name,
-            cat_code
-          )
-          VALUES (
-            1,
-            "Langages de programmation appris en formation",
-            "competence"
-          ), (
-            2,
-            "Autres langages de programmation connus",
-            "competence"
-          ), (
-            3,
-            "Langues parlées",
-            "competence"
-          ), (
-            4,
-            "Mes qualités",
-            "personal"
-          ), (
-            5,
-            "Mes sports",
-            "personal"
-          ), (
-            6,
-            "Mes passions",
-            "personal"
-          )
-        ');
-        $this->connection->executeQuery('
-          INSERT INTO competence (
-            cat_id,
-            cpt_name,
-            cpt_level
-          )
+          INSERT INTO work 
+            (wor_id, com_id, wor_from, wor_to, wor_job_name)
           VALUES
-          (1, "C", 100),
-          (1, "Java", 100),
-          (1, "Perl", 100),
-          (1, "Python", 100),
-          (1, "Bash", 100),
-          (1, "HTML", 100),
-          (1, "CSS", 100),
-          (1, "Javascript", 100),
-          (1, "PHP", 100),
-          (1, "XML", 100),
-          (1, "XSLT", 100),
-          (1, "DTD", 100),
-          (1, "SQL", 100),
-          (1, "Camel", 100),
-          (1, "Prolog", 100),
-          (2, "C++", 100),_
-          (2, "JQuery", 100),
-          (2, "Visual Composer", 100),
-          (2, "Guided Procedure", 100),
-          (2, "Latex", 100),
-          (3, "Français (langue natale)", 100),
-          (3, "Anglais (niveau scolaire)", 100),
-          (3, "Espagnol (niveau scolaire)", 100)
+            (1, 1, "2005-07-01", "2011-08-31", "Moniteur kayak"),
+            (2, 2, "2014-01-01", "2014-01-31", "Déménageur"),
+            (3, 3, "2014-03-16", "2014-03-19", "Organisateur"),
+            (4, 4, "2011-01-01", "2011-01-31", "Webmaster"),
+            (5, 5, "2013-04-01", "2013-06-30", "Consultant Informatique"),
+            (6, 6, "2014-06-26", "2017-02-13", "Ingénieur d\'étude et de développement"),
+            (7, 7, "2017-02-20", "2017-08-31", "Lead Developer" ),
+            (8, 7, "2017-09-01", null, "Chef de projet / Lead Developer")
         ');
         $this->connection->executeQuery('
-          INSERT INTO personal (
-            cat_id,
-            prs_name
-          )
+          INSERT INTO work_line
+            (wol_id, wor_id, wol_id_parent, wor_label)
           VALUES
-          (4, "Bonnes capacités d\'analyse et d\'adaptation"),
-          (4, "Attentif"),
-          (4, "Motivé dans mes projets"),
-          (4, "Dynamique et efficace"),
-          (4, "Prévenant"),
-          (4, "Volontaire"),
-          (5, "Canoë-kayak (moniteur de kayak pendant 7 ans)"),
-          (5, "Ski"),
-          (5, "Vélo"),
-          (5, "Course à pied"),
-          (5, "Pêche"),
-          (6, "Informatique (apprentissage, partage, ...)"),
-          (6, "Nouvelles technologies"),
-          (6, "Automobile"),
-          (6, "Cuisine")
+            (1, 1, null, "Encadrement des participants seul ou à plusieurs"),
+            (2, 1, null, "Préparation matériel"),
+            (3, 1, null, "Organisation des journées"),
+            (4, 1, null, "Mise en place des consignes de sécurité"),
+            (5, 1, null, "Conception et évolution de jeux"),
+            (6, 2, null, "Transferts organisés des dossiers sous scellés"),
+            (7, 2, null, "Montage / démontage étagères"),
+            (8, 3, null, "Responsable des temps de paroles de chaque délégation"),
+            (9, 3, null, "Ordonner les orateurs selon une liste prédéfinie"),
+            (10, 4, null, "Refonte du site web seul"),
+            (11, 4, null, "Actualisation mise en page et contenu"),
+            (12, 4, null, "Simplification et amélioration du code"),
+            (13, 4, null, "Ajout de fonctionnalités"),
+            (14, 5, null, "Développement portail interne dans une équipe de 3 personnes"),
+            (15, 5, null, "Utilisation de Guide Procedure, Visual Composer et SAP"),
+            (16, 5, null, "Changement des logins de connexion"),
+            (17, 5, null, "Création de boutons visuels"),
+            (18, 6, null, "Chez Arval MD (ex: Louveo) filiale de BNP Paribas"),
+            (19, 6 , 18, "Migration de l\'application existante sous Symfony"),
+            (20, 6 , 18, "Mise en place de la signature électronique via echosign"),
+            (21, 6 , 18, "Élaboration d\'une interface avec ActiveSync"),
+            (22, 6 , 18, "Création d\'un webservice à l\'aide de la librairie NuSOAP"),
+            (23, 6 , 18, "Développement et mis à jour de nombreux modules du portail interne"),
+            (24, 6 , 18, "Utilisation et évolution du framework de l\'entreprise"),
+            (25, 6 , 18, "Administration des droits d\'accès aux fonctionnalités"),
+            (26, 6 , 18, "Gestion et intégration des traductions"),
+            (27, 7, null, "Refonte multiples de pages"),
+            (28, 7, null, "Amélioration des performances générales"),
+            (29, 7, null, "Ajout de fonctionnalités"),
+            (30, 8, null, "Gestion de divers projets"),
+            (31, 8, null, "Evolution profonde de l\'application"),
+            (32, 8, null, "Mis en place de process complexe pour l\'intégration de Symfony")
+        ');
+        $this->connection->executeQuery('
+          INSERT INTO school
+            (sch_id, sch_name, sch_logo)
+          VALUES
+            (1, "Université de Genève", null),
+            (2, "Université Jean Monnet", null),
+            (3, "Lycée François Mauriac", null)
+        ');
+        $this->connection->executeQuery('
+          INSERT INTO formation
+            (sch_id, frm_degree, frm_from, frm_to)
+          VALUES
+            (1, "Master sciences informatique mention excellent", "2011-09-01", "2014-01-31"),
+            (2, "licence informatique", "2008-09-01", "2011-06-30"),
+            (3, "baccalaureat scientifique specialite mathematiques", "2004-09-01", "2008-06-30")
+        ');
+        $this->connection->executeQuery('
+          INSERT INTO category
+            (cat_id, cat_name, cat_code)
+          VALUES
+            (1, "Langages de programmation appris en formation", "competence"),
+            (2, "Autres langages de programmation connus", "competence"),
+            (3, "Langues parlées", "competence"),
+            (4, "Mes qualités", "personal"),
+            (5, "Mes sports", "personal"),
+            (6, "Mes passions", "personal")
+        ');
+        $this->connection->executeQuery('
+          INSERT INTO competence
+            (cat_id, cpt_name, cpt_level)
+          VALUES
+            (1, "C", 100),
+            (1, "Java", 100),
+            (1, "Perl", 100),
+            (1, "Python", 100),
+            (1, "Bash", 100),
+            (1, "HTML", 100),
+            (1, "CSS", 100),
+            (1, "Javascript", 100),
+            (1, "PHP", 100),
+            (1, "XML", 100),
+            (1, "XSLT", 100),
+            (1, "DTD", 100),
+            (1, "SQL", 100),
+            (1, "Camel", 100),
+            (1, "Prolog", 100),
+            (2, "C++", 100),
+            (2, "JQuery", 100),
+            (2, "Visual Composer", 100),
+            (2, "Guided Procedure", 100),
+            (2, "Latex", 100),
+            (3, "Français (langue natale)", 100),
+            (3, "Anglais (niveau scolaire)", 100),
+            (3, "Espagnol (niveau scolaire)", 100)
+        ');
+        $this->connection->executeQuery('
+          INSERT INTO personal
+            (cat_id, prs_name)
+          VALUES
+            (4, "Bonnes capacités d\'analyse et d\'adaptation"),
+            (4, "Attentif"),
+            (4, "Motivé dans mes projets"),
+            (4, "Dynamique et efficace"),
+            (4, "Prévenant"),
+            (4, "Volontaire"),
+            (5, "Canoë-kayak (moniteur de kayak pendant 7 ans)"),
+            (5, "Ski"),
+            (5, "Vélo"),
+            (5, "Course à pied"),
+            (5, "Pêche"),
+            (6, "Informatique (apprentissage, partage, ...)"),
+            (6, "Nouvelles technologies"),
+            (6, "Automobile"),
+            (6, "Cuisine")
         ');
       }
       catch(\Doctrine\DBAL\DBALException $e) {
