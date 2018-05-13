@@ -71,6 +71,13 @@
      */
     private $to;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="frm_url", type="string", nullable=true)
+     */
+    private $url;
+
     #endregion
 
 
@@ -160,6 +167,23 @@
     public function setTo(\DateTime $to = null)
     {
       $this->to = $to;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    : string
+    {
+      return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url)
+    {
+      $this->url = $url;
     }
 
     #endregion
