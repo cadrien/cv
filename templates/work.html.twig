@@ -3,17 +3,15 @@
 {% macro showWorklines(worklines) %}
     {% if worklines is iterable and worklines | length %}
         {% import _self as macros %}
-        <ul class='list-group'>
             {% for workline in worklines %}
                 {% set children = workline.worklines %}
-                <li class='list-group-item work-line'>
+                <div class='mb-3'>
                     {{ workline.label }}
                     {% if children is iterable and children | length %}
-                        {{ macros.showWorklines(children) }}
+                        <div class='ml-4 mt-3'>{{ macros.showWorklines(children) }}</div>
                     {% endif %}
-                </li>
+                </div>
             {% endfor %}
-        </ul>
     {% endif %}
 {% endmacro %}
 
@@ -24,45 +22,45 @@
 {% block content %}
     {% import _self as macros %}
     {% if companies is defined %}
-        <section id='cd-timeline' class='cd-container ma0'>
-            {% for company in companies %}
-                <div class='cd-timeline-block'>
-                    <div class='cd-timeline-img bg-info'>
-                        {% if company.logo is not empty %}
+        <div class='cd-timeline js-cd-timeline'>
+            <div class="cd-timeline__container">
+                {% for company in companies %}
+                    <div class='cd-timeline__block js-cd-block'>
+                        <div class='cd-timeline__img cd-timeline__img--picture js-cd-img'>
                             <img src='{{ company.logo }}'/>
-                        {% else %}
-                            {{ company.name }}
-                        {% endif %}
-                    </div>
-                    <div class='cd-timeline-content company'>
-                        <h2>{{ company.name }}</h2>
-                        {% for work in company.worksSorted %}
-                            <div class='row work'>
-                                <div class='col-sm-8 work-name'>
-                                    {{ work.jobName }}
+                        </div>
+                        <div class='cd-timeline__content js-cd-content'>
+                            <h2 class='mb-4'>{{ company }}</h2>
+                            {% for work in company.worksSorted %}
+                                <div class='card mb-4'>
+                                    <div class='card-body'>
+                                        <h1 class='card-title mb-4'>
+                                            {{ work.jobName }}
+                                            <span class='badge pull-right'>
+                                                {% if work.duration.y %}
+                                                    {{ work.duration.y }}
+                                                    {{ work.duration.y > 1 ? 'ans' : 'an' }}
+                                                {% endif %}
+                                                {% set months = work.duration.m + (work.duration.d > 15 ? 1 : 0) %}
+                                                {{ months ? months : '< 1' }} mois
+                                            </span>
+                                        </h1>
+                                        <div class='card-text'>
+                                            {{ macros.showWorklines(work.workLinesFirstLevel) }}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class='col-sm-4 text-right'>
-                                    <span class='badge work-duration'>
-                                        {% if work.duration.y %}
-                                            {{ work.duration.y }}
-                                            {{ work.duration.y > 1 ? 'ans' : 'an' }}
-                                        {% endif %}
-                                        {% set months = work.duration.m + (work.duration.d > 15 ? 1 : 0) %}
-                                        {{ months ? months : '< 1' }} mois
-                                    </span>
-                                </div>
-                            </div>
-                            {{ macros.showWorklines(work.workLinesFirstLevel) }}
-                            {% if loop.last %}
-                                <span class='cd-date'>{{ work.from | date('M y') }}</span>
-                            {% endif %}
-                        {% endfor %}
-                        <a href='{{ company.url }}' target=_blank class='cd-read-more'>
-                            <i class='fa fa-link'></i>
-                        </a>
+                                {% if loop.last %}
+                                    <span class='cd-timeline__date'>{{ work.from | date('M y') }}</span>
+                                {% endif %}
+                            {% endfor %}
+                            <a href='{{ company.url }}' target=_blank class='cd-timeline__read-more'>
+                                <i class='fa fa-link'></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-        </section>
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
 {% endblock %}
