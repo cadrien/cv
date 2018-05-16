@@ -1,0 +1,20 @@
+{
+  "build/base.css": "/build/base.css",
+  "build/base.js": "/build/base.js",
+  "build/bootstrap.css": "/build/bootstrap.css",
+  "build/bootstrap.js": "/build/bootstrap.js",
+  "build/fa.css": "/build/fa.css",
+  "build/fa.js": "/build/fa.js",
+  "build/fonts/fontawesome-webfont.eot?v=4.7.0": "/build/fonts/fontawesome-webfont.674f50d2.eot",
+  "build/fonts/fontawesome-webfont.ttf?v=4.7.0": "/build/fonts/fontawesome-webfont.b06871f2.ttf",
+  "build/fonts/fontawesome-webfont.woff2?v=4.7.0": "/build/fonts/fontawesome-webfont.af7ae505.woff2",
+  "build/fonts/fontawesome-webfont.woff?v=4.7.0": "/build/fonts/fontawesome-webfont.fee66e71.woff",
+  "build/images/fontawesome-webfont.svg?v=4.7.0": "/build/images/fontawesome-webfont.912ec66d.svg",
+  "build/jquery.min.js": "/build/jquery.min.js",
+  "build/popper.min.js": "/build/popper.min.js",
+  "build/vertical-timeline-js.js": "/build/vertical-timeline-js.js",
+  "build/vertical-timeline-reset.css": "/build/vertical-timeline-reset.css",
+  "build/vertical-timeline-reset.js": "/build/vertical-timeline-reset.js",
+  "build/vertical-timeline-style.css": "/build/vertical-timeline-style.css",
+  "build/vertical-timeline-style.js": "/build/vertical-timeline-style.js"
+}
