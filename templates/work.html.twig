@@ -8,7 +8,7 @@
                 <div class='mb-3'>
                     {{ workline.label }}
                     {% if children is iterable and children | length %}
-                        <div class='ml-4 mt-3'>{{ macros.showWorklines(children) }}</div>
+                        <div class='ml-5 mt-3'>{{ macros.showWorklines(children) }}</div>
                     {% endif %}
                 </div>
             {% endfor %}
