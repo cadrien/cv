@@ -34,7 +34,7 @@
                             {% for work in company.worksSorted %}
                                 <div class='card mb-4'>
                                     <div class='card-body'>
-                                        <h1 class='card-title mb-4'>
+                                        <h3 class='card-title mb-4'>
                                             {{ work.jobName }}
                                             <span class='badge pull-right'>
                                                 {% if work.duration.y %}
@@ -44,7 +44,7 @@
                                                 {% set months = work.duration.m + (work.duration.d > 15 ? 1 : 0) %}
                                                 {{ months ? months : '< 1' }} mois
                                             </span>
-                                        </h1>
+                                        </h3>
                                         <div class='card-text'>
                                             {{ macros.showWorklines(work.workLinesFirstLevel) }}
                                         </div>
