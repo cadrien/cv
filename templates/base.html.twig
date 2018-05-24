@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset='UTF-8'/>
-        <link rel='stylesheet' href='{{ asset('/build/bootstrap.css') }}' media='screen'/>
-        <link rel='stylesheet' href='{{ asset('/build/fa.css') }}' media='screen'/>
         <link rel='stylesheet' href='{{ asset('/build/vertical-timeline-reset.css') }}' media='screen'/>
         <link rel='stylesheet' href='{{ asset('/build/vertical-timeline-style.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('/build/bootstrap.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('/build/fa.css') }}' media='screen'/>
         <link rel='stylesheet' href='{{ asset('/build/base.css') }}' media='screen'/>
         {% block css %}{% endblock %}
         <script src='{{ asset('/build/jquery.min.js') }}'></script>
@@ -15,7 +15,7 @@
     </head>
     <body>
     {% block nav %}
-        <nav class='navbar navbar-expand navbar-light bg-light mb-4'>
+        <nav class='navbar navbar-expand navbar-blue mb-5'>
             <div class='collapse navbar-collapse'>
                 <div class='navbar-nav'>
                     <a class='nav-item nav-link{{ app.request.pathInfo in [path('homepage')] ? ' active' }}'
