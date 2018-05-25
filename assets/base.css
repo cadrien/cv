@@ -10,13 +10,14 @@
 }
 
 a { color:inherit; }
-a:hover { color:var(--red); }
+a:hover { color:var(--gray); }
 body { background-color:var(--white); font-size:1.5rem; }
 .cd-timeline { margin:auto; }
 .cd-timeline__content { background-color:var(--bgray); border:solid 1px var(--gray); }
+.cd-timeline__img.cd-timeline__img--picture { background-color:var(--white); }
 .cd-timeline__img img { min-width:60px; min-height:60px; position:initial; margin:auto; border-radius:50%; }
 @media (max-width:1169px) {
-    .cd-timeline__img img { min-width:40px; min-height:40px; position:initial; margin:auto; border-radius:50%; }
+    .cd-timeline__img img { min-width:40px; min-height:40px; }
     .row-reverse-xs { display:flex; flex-direction:row-reverse; }
 }
 .text-overflow { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
