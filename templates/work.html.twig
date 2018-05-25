@@ -54,9 +54,8 @@
                                     <span class='cd-timeline__date'>{{ work.from | date('M y') }}</span>
                                 {% endif %}
                             {% endfor %}
-                            <a href='{{ company.url }}' target=_blank class='cd-timeline__read-more'>
-                                <i class='fa fa-link'></i>
-                            </a>
+                            <a href='{{ company.url }}' target=_blank class='cd-timeline__read-more fa fa-link'></a>
+                            <a href='{{ company.url }}' target=_blank class='cd-timeline__read-more fa fa-file-text'></a>
                         </div>
                     </div>
                 {% endfor %}
