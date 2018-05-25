@@ -12,6 +12,7 @@
 a { color:inherit; }
 a:hover { color:var(--gray); }
 body { background-color:var(--white); font-size:1.5rem; }
+.active { font-weight:500; }
 .cd-timeline { margin:auto; }
 .cd-timeline__content { background-color:var(--bgray); border:solid 1px var(--gray); }
 .cd-timeline__img.cd-timeline__img--picture { background-color:var(--white); }
