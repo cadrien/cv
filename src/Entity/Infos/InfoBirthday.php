@@ -9,6 +9,7 @@
   namespace App\Entity\Infos;
 
 
+  use Doctrine\ORM\Mapping as ORM;
   use App\Entity\Info;
 
   /**

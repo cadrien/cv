@@ -19,8 +19,14 @@
    * @ORM\InheritanceType("SINGLE_TABLE")
    * @ORM\DiscriminatorColumn(name="inf_type", type="string")
    * @ORM\DiscriminatorMap({
-   *      Info::CODE_COMPETENCE   = "App\Entity\CategoryCompetence",
-   *      Info::CODE_PERSONAL     = "App\Entity\CategoryPersonal"
+   *      Info::TYPE_GENDER         = "App\Entity\Infos\InfoGender",
+   *      Info::TYPE_FIRSTNAME      = "App\Entity\Infos\InfoFirstname",
+   *      Info::TYPE_LASTNAME       = "App\Entity\Infos\InfoLastname",
+   *      Info::TYPE_BIRTHDAY       = "App\Entity\Infos\InfoBirthday",
+   *      Info::TYPE_MAIL           = "App\Entity\Infos\InfoMail",
+   *      Info::TYPE_ADDRESS        = "App\Entity\Infos\InfoAddress",
+   *      Info::TYPE_SOCIAL_NETWORK = "App\Entity\Infos\InfoSocialNetwork",
+   *      Info::TYPE_PHONE          = "App\Entity\Infos\InfoPhone"
    * })
    */
   abstract class Info extends Entity
@@ -31,7 +37,7 @@
     const TYPE_FIRSTNAME = 'firstname';
     const TYPE_LASTNAME = 'lastname';
     const TYPE_BIRTHDAY = 'birthday';
-    const TYPE_MAIl = 'mail';
+    const TYPE_MAIL = 'mail';
     const TYPE_ADDRESS = 'address';
     const TYPE_SOCIAL_NETWORK = 'social_network';
     const TYPE_PHONE = 'phone';
