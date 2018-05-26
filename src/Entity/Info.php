@@ -26,7 +26,8 @@
    *      Info::TYPE_MAIL           = "App\Entity\Infos\InfoMail",
    *      Info::TYPE_ADDRESS        = "App\Entity\Infos\InfoAddress",
    *      Info::TYPE_SOCIAL_NETWORK = "App\Entity\Infos\InfoSocialNetwork",
-   *      Info::TYPE_PHONE          = "App\Entity\Infos\InfoPhone"
+   *      Info::TYPE_PHONE          = "App\Entity\Infos\InfoPhone",
+   *      Info::TYPE_PHOTO          = "App\Entity\Infos\InfoPhoto"
    * })
    */
   abstract class Info extends Entity
@@ -41,6 +42,7 @@
     const TYPE_ADDRESS = 'address';
     const TYPE_SOCIAL_NETWORK = 'social_network';
     const TYPE_PHONE = 'phone';
+    const TYPE_PHOTO = 'photo';
 
     #endregion
 
