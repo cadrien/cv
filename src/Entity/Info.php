@@ -69,7 +69,7 @@
     /**
      * @var string
      *
-     * @ORM\Column(name="inf_value", type="string")
+     * @ORM\Column(name="inf_value", type="text")
      */
     private $value;
 

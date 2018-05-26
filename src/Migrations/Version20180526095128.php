@@ -15,7 +15,7 @@ final class Version20180526095128 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE info (inf_id INT AUTO_INCREMENT NOT NULL, inf_value VARCHAR(255) NOT NULL, inf_type VARCHAR(255) NOT NULL, PRIMARY KEY(inf_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE info (inf_id INT AUTO_INCREMENT NOT NULL, inf_value LONGTEXT NOT NULL, inf_type VARCHAR(255) NOT NULL, PRIMARY KEY(inf_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
     }
 
     public function down(Schema $schema) : void
@@ -25,6 +25,7 @@ final class Version20180526095128 extends AbstractMigration
 
         $this->addSql('DROP TABLE info');
     }
+
     /**
      * @param Schema $schema
      */
@@ -35,9 +36,9 @@ final class Version20180526095128 extends AbstractMigration
       try {
         $this->connection->executeQuery('
             INSERT INTO info (
-              id,
-              value,
-              type
+              inf_id,
+              inf_value,
+              inf_type
             )
             VALUES
               (1, "Mr.", "gender"),
