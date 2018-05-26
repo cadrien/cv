@@ -55,5 +55,4 @@ final class Version20180526095128 extends AbstractMigration
         $this->write($e->getMessage());
       }
     }
-    }
 }
