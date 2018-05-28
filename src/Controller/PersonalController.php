@@ -49,7 +49,7 @@
      */
     public function indexAction()
     {
-      return ['categories' => $this->getManager()->getRepository(CategoryPersonal::class)->findAll()];
+      return array_merge($this->getTwigParams(), ['categories' => $this->getManager()->getRepository(CategoryPersonal::class)->findAll()]);
     }
 
     #endregion

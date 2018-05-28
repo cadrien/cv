@@ -46,13 +46,14 @@
     /**
      * @Route("/competence", name="competence")
      * @Method("GET")
-     * @return mixed[]
+     * @return Response
      */
     public function indexAction()
     {
-      return new Response($this->renderView('competence.html.twig', ['categories' => $this->getManager()
-                                                                                          ->getRepository(CategoryCompetence::class)
-                                                                                          ->findAll()]));
+      return new Response($this->renderView('competence.html.twig', array_merge($this->getTwigParams(),
+                                                                                ['categories' => $this->getManager()
+                                                                                                      ->getRepository(CategoryCompetence::class)
+                                                                                                      ->findAll()])));
     }
 
     #endregion

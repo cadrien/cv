@@ -49,7 +49,7 @@
      */
     public function indexAction()
     {
-      return ['formations' => $this->getManager()->getRepository(Formation::class)->findAll()];
+      return array_merge($this->getTwigParams(), ['formations' => $this->getManager()->getRepository(Formation::class)->findAll()]);
     }
 
     #endregion
