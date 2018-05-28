@@ -9,8 +9,12 @@
   namespace App\Controller;
 
 
+  use App\Entity\Infos\InfoAddress;
+  use App\Entity\Infos\InfoBirthday;
   use App\Entity\Infos\InfoName;
   use App\Entity\Infos\InfoMail;
+  use App\Entity\Infos\InfoPhone;
+  use App\Entity\Infos\InfoSocialNetwork;
   use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
   class Controller extends \Symfony\Bundle\FrameworkBundle\Controller\Controller
@@ -65,8 +69,12 @@
     protected function getTwigParams()
     {
       return [
-        'name'    => $this->getManager()->getRepository(InfoName::class)->findOneBy([]),
-        'mails'   => $this->getManager()->getRepository(InfoMail::class)->findAll(),
+        'name'            => $this->getManager()->getRepository(InfoName::class)->findOneBy([]),
+        'mails'           => $this->getManager()->getRepository(InfoMail::class)->findAll(),
+        'phones'          => $this->getManager()->getRepository(InfoPhone::class)->findAll(),
+        'addresses'       => $this->getManager()->getRepository(InfoAddress::class)->findAll(),
+        'birthday'        => $this->getManager()->getRepository(InfoBirthday::class)->findOneBy([]),
+        'social_networks' => $this->getManager()->getRepository(InfoSocialNetwork::class)->findAll(),
       ];
     }
 
