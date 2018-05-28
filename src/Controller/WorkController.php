@@ -50,19 +50,12 @@
     #region public methods
 
     /**
-     * @param Request $request
      * @Route("/", name="homepage")
      * @return JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function workAction(Request $request)
+    public function workAction()
     {
-      if($request->isXmlHttpRequest()) {
-        return new JsonResponse([
-                                  'html' => $this->renderView('work.html.twig',
-                                                              ['companies' => $this->getCompaniesSorted()])
-                                ]);
-      }
-      return $this->render('work.html.twig', ['companies' => $this->getCompaniesSorted()]);
+      return $this->render('work.html.twig', array_merge($this->getTwigParams(), ['companies' => $this->getCompaniesSorted()]));
     }
 
     #endregion
