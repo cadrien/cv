@@ -13,12 +13,12 @@
   use App\Entity\Info;
 
   /**
-   * Class InfoFirstname
+   * Class InfoName
    * @package AppBundle\Entity
    *
    * @ORM\Entity
    */
-  class InfoFirstname extends Info
+  class InfoName extends Info
   {
     #region const
     #endregion
@@ -46,7 +46,7 @@
 
     #region public methods
 
-    public function getFirstname()
+    public function getName()
     {
       return $this->getValue();
     }

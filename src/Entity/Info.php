@@ -19,9 +19,7 @@
    * @ORM\InheritanceType("SINGLE_TABLE")
    * @ORM\DiscriminatorColumn(name="inf_type", type="string")
    * @ORM\DiscriminatorMap({
-   *      Info::TYPE_GENDER         = "App\Entity\Infos\InfoGender",
-   *      Info::TYPE_FIRSTNAME      = "App\Entity\Infos\InfoFirstname",
-   *      Info::TYPE_LASTNAME       = "App\Entity\Infos\InfoLastname",
+   *      Info::TYPE_NAME           = "App\Entity\Infos\InfoName",
    *      Info::TYPE_BIRTHDAY       = "App\Entity\Infos\InfoBirthday",
    *      Info::TYPE_MAIL           = "App\Entity\Infos\InfoMail",
    *      Info::TYPE_ADDRESS        = "App\Entity\Infos\InfoAddress",
@@ -34,15 +32,13 @@
   {
     #region const
 
-    const TYPE_GENDER = 'gender';
-    const TYPE_FIRSTNAME = 'firstname';
-    const TYPE_LASTNAME = 'lastname';
-    const TYPE_BIRTHDAY = 'birthday';
-    const TYPE_MAIL = 'mail';
-    const TYPE_ADDRESS = 'address';
+    const TYPE_NAME           = 'name';
+    const TYPE_BIRTHDAY       = 'birthday';
+    const TYPE_MAIL           = 'mail';
+    const TYPE_ADDRESS        = 'address';
     const TYPE_SOCIAL_NETWORK = 'social_network';
-    const TYPE_PHONE = 'phone';
-    const TYPE_PHOTO = 'photo';
+    const TYPE_PHONE          = 'phone';
+    const TYPE_PHOTO          = 'photo';
 
     #endregion
 
@@ -96,9 +92,9 @@
 
     #region protected methods
 
-    final protected function getValue()
+    final public function getValue()
     {
-      $this->value;
+      return $this->value;
     }
 
     #endregion
