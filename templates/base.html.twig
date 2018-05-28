@@ -58,33 +58,46 @@
                 <div class='card mb-5'>
                     <div class='card-header'>Mes infos</div>
                     <div class='card-body'>
-                        <div class='card-title mb-4'><i class='fa fa-phone'></i> +33 (0)6.51.45.41.33</div>
-                        <div class='card-title mb-4'>
-                            <a href='mailto:adrien.chaumarat@gmail.com' target=_blank>
-                                <i class='fa fa-envelope'></i> adrien.chaumarat@gmail.com
-                            </a>
-                        </div>
-                        <div class='card-title mb-4'>
-                            <a href=''><i class='fa fa-map-marker'></i> 43 Av Paris, REIMS</a>
-                        </div>
-                        <div class='card-title mb-4'>
-                            <i class='fa fa-info-circle'></i> Né le 10 janvier 1989
-                        </div>
+                        {% if phones is defined and phones is not empty %}
+                            {% for phone in phones %}
+                                <div class='card-title mb-4'><i class='fa fa-phone'></i> {{ phone }}</div>
+                            {% endfor %}
+                        {% endif %}
+                        {% if mails is defined and mails is not empty %}
+                            {% for mail in mails %}
+                                <div class='card-title mb-4'>
+                                    <a href='mailto:{{ mail }}' target=_blank>
+                                        <i class='fa fa-envelope'></i> {{ mail }}
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        {% if addresses is defined and addresses is not empty %}
+                            {% for address in addresses %}
+                                <div class='card-title mb-4'>
+                                    <a href=''><i class='fa fa-map-marker'></i> {{ address }}</a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        {% if birthday is defined and birthday is not empty %}
+                            <div class='card-title mb-4'>
+                                <i class='fa fa-info-circle'></i> Né le {{ birthday }}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class='card mb-5'>
                     <div class='card-header'>Réseaux</div>
                     <div class='card-body'>
-                        <div class='card-title mb-4'>
-                            <a href='https://fr.linkedin.com/in/adrienchaumarat' target=_blank>
-                                <i class='fa fa-linkedin'></i> LinkedIn
-                            </a>
-                        </div>
-                        <div class='card-title mb-4'>
-                            <a href='https://fr.viadeo.com/fr/profile/adrien.chaumarat' target=_blank>
-                                <i class='fa fa-viadeo'></i> Viadeo
-                            </a>
-                        </div>
+                        {% if social_networks is defined and social_networks is not empty %}
+                            {% for social_network in social_networks %}
+                                <div class='card-title mb-4'>
+                                    <a href='{{ social_network }}' target=_blank>
+                                        <i class='fa fa-linkedin'></i> {{ social_network }}
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
                 <div class='card mb-5'>
