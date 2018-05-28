@@ -37,6 +37,12 @@
 
 
     #region magic methods
+
+    public function __toString()
+    {
+      return $this->getPhoneNumber();
+    }
+
     #endregion
 
 
@@ -48,7 +54,7 @@
 
     public function getPhoneNumber()
     {
-
+      return $this->getValue();
     }
 
     #endregion
