@@ -92,7 +92,7 @@
 
     #region protected methods
 
-    final public function getValue()
+    final protected function getValue()
     {
       return $this->value;
     }
