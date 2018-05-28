@@ -9,6 +9,8 @@
   namespace App\Controller;
 
 
+  use App\Entity\Infos\InfoName;
+  use App\Entity\Infos\InfoMail;
   use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
   class Controller extends \Symfony\Bundle\FrameworkBundle\Controller\Controller
@@ -58,6 +60,14 @@
     protected function getRouter()
     {
       return $this->get('router');
+    }
+
+    protected function getTwigParams()
+    {
+      return [
+        'name'    => $this->getManager()->getRepository(InfoName::class)->findOneBy([]),
+        'mails'   => $this->getManager()->getRepository(InfoMail::class)->findAll(),
+      ];
     }
 
     #endregion
