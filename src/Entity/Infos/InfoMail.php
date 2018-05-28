@@ -37,6 +37,12 @@
 
 
     #region magic methods
+
+    public function __toString()
+    {
+      return is_string($this->getMail()) ? $this->getMail() : '';
+    }
+
     #endregion
 
 
