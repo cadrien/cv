@@ -33,6 +33,16 @@
 
 
     #region private properties
+
+    /** @var string */
+    private $logo;
+
+    /** @var string */
+    private $url;
+
+    /** @var string */
+    private $name;
+
     #endregion
 
 
@@ -40,23 +50,78 @@
 
     public function __toString()
     {
-      return $this->getUrl();
+      return $this->getName();
     }
 
     #endregion
 
 
     #region getters/setters
+
+    /**
+     * @return string
+     */
+    public function getLogo()
+    : string
+    {
+      return $this->logo;
+    }
+
+    /**
+     * @param string $logo
+     * @return InfoSocialNetwork
+     */
+    public function setLogo(string $logo)
+    : InfoSocialNetwork
+    {
+      $this->logo = $logo;
+      return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    : string
+    {
+      return $this->url;
+    }
+
+    /**
+     * @param string $url
+     * @return InfoSocialNetwork
+     */
+    public function setUrl(string $url)
+    : InfoSocialNetwork
+    {
+      $this->url = $url;
+      return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    : string
+    {
+      return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return InfoSocialNetwork
+     */
+    public function setName(string $name)
+    : InfoSocialNetwork
+    {
+      $this->name = $name;
+      return $this;
+    }
+
     #endregion
 
 
     #region public methods
-
-    public function getUrl()
-    {
-      return $this->getValue();
-    }
-
     #endregion
 
 

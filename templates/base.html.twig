@@ -92,8 +92,8 @@
                         {% if social_networks is defined and social_networks is not empty %}
                             {% for social_network in social_networks %}
                                 <div class='card-title mb-4 text-truncate'>
-                                    <a href='{{ social_network }}' target=_blank>
-                                        <i class='fa fa-linkedin'></i> {{ social_network }}
+                                    <a href='{{ social_network.url }}' target=_blank>
+                                        <i class='fa fa-{{ social_network.logo }}'></i> {{ social_network }}
                                     </a>
                                 </div>
                             {% endfor %}

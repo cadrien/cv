@@ -41,3 +41,7 @@ services:
         class: App\Entity\Subscriber\InfoBirthdaySubscriber
         tags:
           - { name: doctrine.event_subscriber }
+    infosocialnetwork.entity.subscriber:
+        class: App\Entity\Subscriber\InfoSocialNetworkSubscriber
+        tags:
+          - { name: doctrine.event_subscriber }
