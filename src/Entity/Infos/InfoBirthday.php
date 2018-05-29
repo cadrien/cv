@@ -33,30 +33,73 @@
 
 
     #region private properties
+
+    /** @var \DateTime */
+    private $date;
+
+    /** @var string */
+    private $name;
+
     #endregion
 
 
     #region magic methods
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
-      return $this->getDate();
+      return $this->getName();
     }
 
     #endregion
 
 
     #region getters/setters
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+      return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     * @return InfoBirthday
+     */
+    public function setDate(\DateTime $date)
+    : InfoBirthday
+    {
+      $this->date = $date;
+      return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+      return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return InfoBirthday
+     */
+    public function setName($name)
+    : InfoBirthday
+    {
+      $this->name = $name;
+      return $this;
+    }
+
     #endregion
 
 
     #region public methods
-
-    public function getDate()
-    {
-      return $this->getValue();
-    }
-
     #endregion
 
 

@@ -37,3 +37,7 @@ services:
         class: App\Entity\Subscriber\InfoAddressSubscriber
         tags:
           - { name: doctrine.event_subscriber }
+    infobirthday.entity.subscriber:
+        class: App\Entity\Subscriber\InfoBirthdaySubscriber
+        tags:
+          - { name: doctrine.event_subscriber }
