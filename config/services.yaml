@@ -33,3 +33,7 @@ services:
         class: App\Entity\Subscriber\InfoNameSubscriber
         tags:
           - { name: doctrine.event_subscriber }
+    infoaddress.entity.subscriber:
+        class: App\Entity\Subscriber\InfoAddressSubscriber
+        tags:
+          - { name: doctrine.event_subscriber }

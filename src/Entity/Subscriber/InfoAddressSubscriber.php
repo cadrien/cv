@@ -2,17 +2,17 @@
   /**
    * Created by PhpStorm.
    * @author: Adrien CHAUMARAT <adrien.chaumarat@gmail.com>
-   * @date  : 28/05/18
-   * @time  : 19:55
+   * @date  : 29/05/18
+   * @time  : 08:13
    */
 
   namespace App\Entity\Subscriber;
 
 
-  use App\Entity\Infos\InfoName;
+  use App\Entity\Infos\InfoAddress;
   use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 
-  class InfoNameSubscriber extends BaseSubscriber
+  class InfoAddressSubscriber extends BaseSubscriber
   {
     #region const
     #endregion
@@ -40,9 +40,6 @@
 
     #region public methods
 
-    /**
-     * @return array
-     */
     public function getSubscribedEvents()
     {
       return [
@@ -57,13 +54,12 @@
      */
     public function postLoad(LifecycleEventArgs $args)
     {
-      /** @var InfoName $entity */
-      if(( $entity = $args->getObject() ) instanceof InfoName)
+      /** @var InfoAddress $entity */
+      if(( $entity = $args->getObject() ) instanceof InfoAddress)
       {
         $tab = unserialize($entity->getValue());
-        $entity->setGender($tab['gender'] ?? null);
-        $entity->setFirstname($tab['firstname'] ?? null);
-        $entity->setLastname($tab['lastname'] ?? null);
+        $entity->setUrl($tab['url'] ?? null);
+        $entity->setName($tab['name'] ?? null);
       }
     }
 
@@ -72,8 +68,8 @@
      */
     public function prePersist(LifecycleEventArgs $args)
     {
-      /** @var InfoName $entity */
-      if(( $entity = $args->getObject() ) instanceof InfoName)
+      /** @var InfoAddress $entity */
+      if(( $entity = $args->getObject() ) instanceof InfoAddress)
       {
         $this->serializeData($entity);
       }
@@ -84,8 +80,8 @@
      */
     public function preUpdate(LifecycleEventArgs $args)
     {
-      /** @var InfoName $entity */
-      if(( $entity = $args->getObject() ) instanceof InfoName)
+      /** @var InfoAddress $entity */
+      if(( $entity = $args->getObject() ) instanceof InfoAddress)
       {
         $this->serializeData($entity);
       }
@@ -101,14 +97,13 @@
     #region private methods
 
     /**
-     * @param InfoName $entity
+     * @param InfoAddress $entity
      */
-    private function serializeData(InfoName $entity)
+    private function serializeData(InfoAddress $entity)
     {
       $entity->setValue(serialize([
-                                    'gender'    => $entity->getGender(),
-                                    'firstname' => $entity->getFirstname(),
-                                    'lastname'  => $entity->getLastname()
+                                    'url'  => $entity->getUrl(),
+                                    'name' => $entity->getName()
                                   ]));
     }
 

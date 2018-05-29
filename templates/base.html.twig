@@ -56,16 +56,16 @@
             </div>
             <div class='col-sm-3'>
                 <div class='card mb-5'>
-                    <div class='card-header'>Mes infos</div>
+                    <div class='card-header'>{{ name }}</div>
                     <div class='card-body'>
                         {% if phones is defined and phones is not empty %}
                             {% for phone in phones %}
-                                <div class='card-title mb-4'><i class='fa fa-phone'></i> {{ phone }}</div>
+                                <div class='card-title mb-4 text-truncate'><i class='fa fa-phone'></i> {{ phone }}</div>
                             {% endfor %}
                         {% endif %}
                         {% if mails is defined and mails is not empty %}
                             {% for mail in mails %}
-                                <div class='card-title mb-4'>
+                                <div class='card-title mb-4 text-truncate'>
                                     <a href='mailto:{{ mail }}' target=_blank>
                                         <i class='fa fa-envelope'></i> {{ mail }}
                                     </a>
@@ -74,13 +74,13 @@
                         {% endif %}
                         {% if addresses is defined and addresses is not empty %}
                             {% for address in addresses %}
-                                <div class='card-title mb-4'>
-                                    <a href=''><i class='fa fa-map-marker'></i> {{ address }}</a>
+                                <div class='card-title mb-4 text-truncate'>
+                                    <a href='{{ address.url }}' target=_blank><i class='fa fa-map-marker'></i> {{ address }}</a>
                                 </div>
                             {% endfor %}
                         {% endif %}
                         {% if birthday is defined and birthday is not empty %}
-                            <div class='card-title mb-4'>
+                            <div class='card-title mb-4 text-truncate'>
                                 <i class='fa fa-info-circle'></i> Né le {{ birthday }}
                             </div>
                         {% endif %}
@@ -91,7 +91,7 @@
                     <div class='card-body'>
                         {% if social_networks is defined and social_networks is not empty %}
                             {% for social_network in social_networks %}
-                                <div class='card-title mb-4'>
+                                <div class='card-title mb-4 text-truncate'>
                                     <a href='{{ social_network }}' target=_blank>
                                         <i class='fa fa-linkedin'></i> {{ social_network }}
                                     </a>
@@ -103,12 +103,12 @@
                 <div class='card mb-5'>
                     <div class='card-header'>Contact</div>
                     <div class='card-body'>
-                        <div class='card-title mb-4'>
+                        <div class='card-title mb-4 text-truncate'>
                             <a href='' data-toggle='modal'>
                                 <i class='fa fa-arrow-circle-right'></i> Me contacter
                             </a>
                         </div>
-                        <div class='card-title mb-4'>
+                        <div class='card-title mb-4 text-truncate'>
                             <a href=''>
                                 <i class='fa fa-arrow-circle-right'></i> Télécharger le CV
                             </a>

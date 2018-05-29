@@ -33,6 +33,13 @@
 
 
     #region private properties
+
+    /** @var string */
+    private $url;
+
+    /** @var string */
+    private $name;
+
     #endregion
 
 
@@ -40,7 +47,7 @@
 
     public function __toString()
     {
-      return $this->getAddress();
+      return $this->getName();
     }
 
     #endregion
@@ -52,9 +59,43 @@
 
     #region public methods
 
-    public function getAddress()
+    /**
+     * @return string
+     */
+    public function getUrl()
+    : string
     {
-      return $this->getValue();
+      return $this->url;
+    }
+
+    /**
+     * @param string $url
+     * @return InfoAddress
+     */
+    public function setUrl(string $url)
+    : InfoAddress
+    {
+      $this->url = $url;
+      return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+      return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return InfoAddress
+     */
+    public function setName(string $name)
+    : InfoAddress
+    {
+      $this->name = $name;
+      return $this;
     }
 
     #endregion
