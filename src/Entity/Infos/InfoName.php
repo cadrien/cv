@@ -33,22 +33,96 @@
 
 
     #region private properties
+
+    /** @var string */
+    private $gender;
+
+    /** @var string */
+    private $firstname;
+
+    /** @var string */
+    private $lastname;
+
     #endregion
 
 
     #region magic methods
+
+    public function __toString()
+    {
+      return $this->getName();
+    }
+
     #endregion
 
 
     #region getters/setters
+
+    /**
+     * @return string
+     */
+    public function getGender()
+    : string
+    {
+      return $this->gender;
+    }
+
+    /**
+     * @param string $gender
+     */
+    public function setGender(string $gender)
+    : void
+    {
+      $this->gender = $gender;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstname()
+    : string
+    {
+      return $this->firstname;
+    }
+
+    /**
+     * @param string $firstname
+     */
+    public function setFirstname(string $firstname)
+    : void
+    {
+      $this->firstname = $firstname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastname()
+    : string
+    {
+      return $this->lastname;
+    }
+
+    /**
+     * @param string $lastname
+     */
+    public function setLastname(string $lastname)
+    : void
+    {
+      $this->lastname = $lastname;
+    }
+
     #endregion
 
 
     #region public methods
 
+    /**
+     * @return string
+     */
     public function getName()
     {
-      return $this->getValue();
+      return implode(' ', [$this->getGender(), $this->getFirstname(), $this->getLastname()]);
     }
 
     #endregion
