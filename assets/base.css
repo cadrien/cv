@@ -10,7 +10,8 @@
 }
 
 a { color:inherit; }
-a:hover { color:var(--gray); }
+a:hover { color:var(--blue); text-decoration:none; }
+.navbar a:hover { color:var(--gray); }
 body { background-color:var(--white); font-size:1.5rem; }
 .active { font-weight:500; }
 .cd-timeline { margin:auto; }
