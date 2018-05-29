@@ -10,11 +10,9 @@
 
 
   use App\Entity\Infos\InfoName;
-  use Doctrine\Common\EventSubscriber;
   use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
-  use Symfony\Component\DependencyInjection\ContainerInterface;
 
-  class InfoNameSubscriber implements EventSubscriber
+  class InfoNameSubscriber extends BaseSubscriber
   {
     #region const
     #endregion
@@ -29,10 +27,6 @@
 
 
     #region private properties
-
-    /** @var ContainerInterface */
-    private $container;
-
     #endregion
 
 
@@ -46,14 +40,21 @@
 
     #region public methods
 
+    /**
+     * @return array
+     */
     public function getSubscribedEvents()
     {
       return [
-        'postLoad',
-        'prePersist'
+        self::EVENT_POST_LOAD,
+        self::EVENT_PRE_PERSIST,
+        self::EVENT_PRE_UPDATE
       ];
     }
 
+    /**
+     * @param LifecycleEventArgs $args
+     */
     public function postLoad(LifecycleEventArgs $args)
     {
       /** @var InfoName $entity */
@@ -66,16 +67,27 @@
       }
     }
 
+    /**
+     * @param LifecycleEventArgs $args
+     */
     public function prePersist(LifecycleEventArgs $args)
     {
       /** @var InfoName $entity */
       if(( $entity = $args->getObject() ) instanceof InfoName)
       {
-        $entity->setValue(serialize([
-                                      'gender'    => $entity->getGender(),
-                                      'firstname' => $entity->getFirstname(),
-                                      'lastname'  => $entity->getLastname()
-                                    ]));
+        $this->serializeData($entity);
+      }
+    }
+
+    /**
+     * @param LifecycleEventArgs $args
+     */
+    public function preUpdate(LifecycleEventArgs $args)
+    {
+      /** @var InfoName $entity */
+      if(( $entity = $args->getObject() ) instanceof InfoName)
+      {
+        $this->serializeData($entity);
       }
     }
 
@@ -87,5 +99,17 @@
 
 
     #region private methods
+
+    /**
+     * @param InfoName $entity
+     */
+    private function serializeData(InfoName $entity)
+    {
+      $entity->setValue(serialize([
+                                    'gender'    => $entity->getGender(),
+                                    'firstname' => $entity->getFirstname(),
+                                    'lastname'  => $entity->getLastname()
+                                  ]));
+    }
     #endregion
   }
