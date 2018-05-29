@@ -37,26 +37,10 @@
 
 
     #region magic methods
-
-    /**
-     * InfoNameSubscriber constructor.
-     * @param ContainerInterface $container
-     */
-    public function __construct(ContainerInterface $container)
-    {
-      $this->container = $container;
-    }
-
     #endregion
 
 
     #region getters/setters
-
-    public function getManager()
-    {
-      return $this->container->get('doctrine.orm.entity_manager');
-    }
-
     #endregion
 
 

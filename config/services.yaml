@@ -31,6 +31,5 @@ services:
     # Entity subscribers
     infoname.entity.subscriber:
         class: App\Entity\Subscriber\InfoNameSubscriber
-        arguments: ['@service_container']
         tags:
           - { name: doctrine.event_subscriber }
