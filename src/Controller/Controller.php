@@ -14,6 +14,7 @@
   use App\Entity\Infos\InfoName;
   use App\Entity\Infos\InfoMail;
   use App\Entity\Infos\InfoPhone;
+  use App\Entity\Infos\InfoPhoto;
   use App\Entity\Infos\InfoSocialNetwork;
   use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
@@ -75,6 +76,7 @@
         'addresses'       => $this->getManager()->getRepository(InfoAddress::class)->findAll(),
         'birthday'        => $this->getManager()->getRepository(InfoBirthday::class)->findOneBy([]),
         'social_networks' => $this->getManager()->getRepository(InfoSocialNetwork::class)->findAll(),
+        'photo'           => $this->getManager()->getRepository(InfoPhoto::class)->findOneBy([]),
       ];
     }
 

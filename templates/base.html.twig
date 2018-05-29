@@ -47,6 +47,9 @@
             <div class='pull-right hidden-xs'>
                 <span class='navbar-brand'>{% block navbar_brand %}CV{% endblock %}</span>
             </div>
+            <div class='pull-right hidden-sm'>
+                {{ photo | raw }}
+            </div>
         </nav>
     {% endblock %}
     <div class='container-fluid'>

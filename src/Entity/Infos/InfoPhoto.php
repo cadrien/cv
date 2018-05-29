@@ -37,6 +37,15 @@
 
 
     #region magic methods
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+      return '<img src="'.$this->getPhoto().'" width="35" />';
+    }
+
     #endregion
 
 
