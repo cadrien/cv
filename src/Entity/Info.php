@@ -83,6 +83,17 @@
       return $this->id;
     }
 
+    final public function getValue()
+    {
+      return $this->value;
+    }
+
+    final public function setValue($value)
+    {
+      $this->value = $value;
+      return $this;
+    }
+
     #endregion
 
 
@@ -91,12 +102,6 @@
 
 
     #region protected methods
-
-    final protected function getValue()
-    {
-      return $this->value;
-    }
-
     #endregion
 
 
