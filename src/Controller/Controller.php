@@ -65,7 +65,7 @@
      */
     protected function getRouter()
     {
-      if ($this->has('router'))
+      if (!$this->has('router'))
         throw new ServiceNotFoundException('router');
       return $this->get('router');
     }
@@ -75,7 +75,7 @@
      */
     protected function getTranslator()
     {
-      if ($this->has('translator'))
+      if (!$this->has('translator'))
         throw new ServiceNotFoundException('translator');
       return $this->get('translator');
     }
