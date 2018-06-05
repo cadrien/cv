@@ -1,8 +1,9 @@
 {
   "build/base.css": "/build/base.css",
   "build/base.js": "/build/base.js",
-  "build/bootstrap.css": "/build/bootstrap.css",
-  "build/bootstrap.js": "/build/bootstrap.js",
+  "build/bootstrap-css.css": "/build/bootstrap-css.css",
+  "build/bootstrap-css.js": "/build/bootstrap-css.js",
+  "build/bootstrap-js.js": "/build/bootstrap-js.js",
   "build/fa.css": "/build/fa.css",
   "build/fa.js": "/build/fa.js",
   "build/fonts/fontawesome-webfont.eot?v=4.7.0": "/build/fonts/fontawesome-webfont.674f50d2.eot",
