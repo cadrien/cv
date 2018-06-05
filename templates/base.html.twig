@@ -4,12 +4,13 @@
         <meta charset='UTF-8'/>
         <link rel='stylesheet' href='{{ asset('/build/vertical-timeline-reset.css') }}' media='screen'/>
         <link rel='stylesheet' href='{{ asset('/build/vertical-timeline-style.css') }}' media='screen'/>
-        <link rel='stylesheet' href='{{ asset('/build/bootstrap.css') }}' media='screen'/>
+        <link rel='stylesheet' href='{{ asset('/build/bootstrap-css.css') }}' media='screen'/>
         <link rel='stylesheet' href='{{ asset('/build/fa.css') }}' media='screen'/>
         <link rel='stylesheet' href='{{ asset('/build/base.css') }}' media='screen'/>
         {% block css %}{% endblock %}
         <script src='{{ asset('/build/jquery.min.js') }}'></script>
         <script src='{{ asset('/build/vertical-timeline-js.js') }}'></script>
+        <script src='{{ asset('/build/bootstrap-js.js') }}'></script>
         {% block js %}{% endblock %}
         <title>{% block title %}Bienvenue !{% endblock %}</title>
     </head>
@@ -107,7 +108,7 @@
                     <div class='card-header'>Contact</div>
                     <div class='card-body'>
                         <div class='card-title mb-4 text-truncate'>
-                            <a href='' data-toggle='modal'>
+                            <a href='' class='cursor-pointer' data-toggle='modal' data-target='#modal-contact'>
                                 <i class='fa fa-arrow-circle-right'></i> Me contacter
                             </a>
                         </div>
@@ -121,6 +122,42 @@
             </div>
         </div>
     </div>
+    {% block modal_contact %}
+        {{ form_start(contact) }}
+        <div id='modal-contact' class='modal fade'>
+            <div class='modal-dialog modal-lg' role='document'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h5 class='modal-title'>Me contacter</h5>
+                        <span class='close' data-dismiss='modal'>
+                            <i class='fa fa-times'></i>
+                        </span>
+                    </div>
+                    <div class='modal-body'>
+                        <div class='row form-group  '>
+                            <div class='col-sm-2'>{{ form_widget(attribute(contact, constant('App\\Form\\ContactType::FIELD_GENDER'))) }}</div>
+                            <div class='col-sm-5'>{{ form_widget(attribute(contact, constant('App\\Form\\ContactType::FIELD_FIRSTNAME'))) }}</div>
+                            <div class='col-sm-5'>{{ form_widget(attribute(contact, constant('App\\Form\\ContactType::FIELD_LASTNAME'))) }}</div>
+                        </div>
+                        <div class='row form-group'>
+                            <div class='col-sm-12'>{{ form_widget(attribute(contact, constant('App\\Form\\ContactType::FIELD_COMPANY'))) }}</div>
+                        </div>
+                        <div class='row form-group'>
+                            <div class='col-sm-12'>{{ form_row(attribute(contact, constant('App\\Form\\ContactType::FIELD_MAIL_CC'))) }}</div>
+                        </div>
+                        <div class='row form-group'>
+                            <div class='col-sm-12'>{{ form_widget(attribute(contact, constant('App\\Form\\ContactType::FIELD_CONTENT'))) }}</div>
+                        </div>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' class='btn btn-primary'><i class='fa fa-send'></i> {{ 'send' | trans | capitalize }}</button>
+                        <button type='button' class='btn btn-secondary' data-dismiss='modal'><i class='fa fa-times'></i> {{ 'close' | trans | capitalize }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(contact) }}
+    {% endblock %}
     {% block js_end %}{% endblock %}
     </body>
 </html>
