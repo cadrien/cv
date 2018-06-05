@@ -17,6 +17,7 @@
   use App\Entity\Infos\InfoPhoto;
   use App\Entity\Infos\InfoSocialNetwork;
   use Symfony\Bundle\FrameworkBundle\Routing\Router;
+  use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 
   class Controller extends \Symfony\Bundle\FrameworkBundle\Controller\Controller
   {
@@ -64,7 +65,19 @@
      */
     protected function getRouter()
     {
+      if ($this->has('router'))
+        throw new ServiceNotFoundException('router');
       return $this->get('router');
+    }
+
+    /**
+     * @return object|\Symfony\Component\Translation\DataCollectorTranslator|\Symfony\Component\Translation\IdentityTranslator
+     */
+    protected function getTranslator()
+    {
+      if ($this->has('translator'))
+        throw new ServiceNotFoundException('translator');
+      return $this->get('translator');
     }
 
     protected function getTwigParams()
