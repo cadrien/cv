@@ -16,6 +16,7 @@
   use App\Entity\Infos\InfoPhone;
   use App\Entity\Infos\InfoPhoto;
   use App\Entity\Infos\InfoSocialNetwork;
+  use App\Form\ContactType;
   use Symfony\Bundle\FrameworkBundle\Routing\Router;
   use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 
@@ -90,6 +91,7 @@
         'birthday'        => $this->getManager()->getRepository(InfoBirthday::class)->findOneBy([]),
         'social_networks' => $this->getManager()->getRepository(InfoSocialNetwork::class)->findAll(),
         'photo'           => $this->getManager()->getRepository(InfoPhoto::class)->findOneBy([]),
+        'contact'         => $this->createForm(ContactType::class)->createView()
       ];
     }
 
