@@ -22,4 +22,7 @@ yarn-error.log
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
+###> cadrien/cv ###
 /.idea/
+/.components/
+###> cadrien/cv ###
