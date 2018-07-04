@@ -9,8 +9,7 @@
   namespace App\Controller;
 
   use App\Entity\CategoryPersonal;
-  use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-  use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+  use Symfony\Component\Routing\Annotation\Route;
   use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
   class PersonalController extends Controller
@@ -43,7 +42,6 @@
 
     /**
      * @Route("/personal", name="personal")
-     * @Method("GET")
      * @Template("personal.html.twig")
      * @return mixed[]
      */

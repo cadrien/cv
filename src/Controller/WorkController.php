@@ -13,9 +13,7 @@
   use App\Entity\Work;
   use App\Extension\Doctrine\ArrayCollection;
   use Symfony\Component\HttpFoundation\JsonResponse;
-  use Symfony\Component\HttpFoundation\Request;
-  use Symfony\Component\VarDumper\VarDumper;
-  use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+  use Symfony\Component\Routing\Annotation\Route;
 
 
   class WorkController extends Controller

@@ -9,8 +9,7 @@
   namespace App\Controller;
 
   use App\Entity\Formation;
-  use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-  use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+  use Symfony\Component\Routing\Annotation\Route;
   use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
   class FormationController extends Controller
@@ -43,7 +42,6 @@
 
     /**
      * @Route("/formation", name="formation")
-     * @Method("GET")
      * @Template("formation.html.twig")
      * @return mixed[]
      */
