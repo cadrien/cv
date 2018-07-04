@@ -12,7 +12,7 @@
         <script src='{{ asset('/build/vertical-timeline-js.js') }}'></script>
         <script src='{{ asset('/build/bootstrap-js.js') }}'></script>
         {% block js %}{% endblock %}
-        <title>{% block title %}Bienvenue !{% endblock %}</title>
+        <title>{% block title %}{{ title }}{% endblock %}</title>
     </head>
     <body>
     {% block nav %}
