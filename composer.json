@@ -28,7 +28,8 @@
         "twbs/bootstrap": "4.1.*",
         "components/jquery": "3.*",
         "fortawesome/font-awesome": "*",
-        "select2/select2": "4.*"
+        "select2/select2": "4.*",
+        "php-pm/php-pm": "1.0.*"
     },
     "require-dev": {
         "symfony/browser-kit": "^4.0",
